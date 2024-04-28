@@ -26,6 +26,7 @@ A simple weather app made with the help of **Openweathermap API**
 
 * **Replit**
 - fork the [Repl here](https://replit.com/@Replitcom7/weather-app)
+- line 24 change http -> https or else replit will throw http error
 
 others like heroku and stuff, coming soon, ig
 
