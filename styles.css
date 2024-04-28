@@ -48,7 +48,37 @@ body {
     margin-top: 20px;
   }
   
+  .weather-container {
+    background-color: #5ac6f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .weather-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 20px;
+  }
+  
+  .weather-icon-container {
+    align-self: center;
+  }
+  
   .weather-icon {
     width: 150px;
     height: 150px;
+  }
+  
+  .weather-data {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .weather-data p {
+    margin: 5px 0;
+  }
+  
+  .weather-data p strong {
+    margin-right: 5px;
   }

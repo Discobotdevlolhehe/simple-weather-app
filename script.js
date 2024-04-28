@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const apiKey = "YOUR API"; // Replace with your OpenWeatherMap API key
+  const apiKey = "7d0433295afe33d818cd2b3ab60a2c1c"; // Replace with your OpenWeatherMap API key
   const searchBtn = document.getElementById('search-btn');
   const cityInput = document.getElementById('city-input');
 
@@ -56,26 +56,36 @@ document.addEventListener('DOMContentLoaded', function () {
   const sunset = new Date(weatherData.sys.sunset * 1000).toLocaleTimeString();
   const iconCode = weatherData.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+
+  
   
   
   // Display weather information
-  weatherInfo.innerHTML = `
+weatherInfo.innerHTML = `
+  <div class="weather-container">
     <h2>Weather in ${city}</h2>
-    <img src="${iconUrl}" alt="${weatherDescription}" class="weather-icon" style="width: 150px; height: 150px;">
-    <p>Temperature: ${temperature}°C</p>
-    <p>Feels like: ${feelsLike}°C</p>
-    <p>Min temperature: ${minTemp}°C</p>
-    <p>Max temperature: ${maxTemp}°C</p>
-    <p>Pressure: ${pressure} hPa</p>
-    <p>Humidity: ${humidity}%</p>
-    <p>Visibility: ${visibility} meters</p>
-    <p>Wind speed: ${windSpeed} m/s</p>
-    <p>Wind direction: ${getWindDirection(windDirection)}</p>
-    <p>Cloudiness: ${clouds}%</p>
-    <p>Weather description: ${weatherDescription}</p>
-    <p>Sunrise: ${sunrise}</p>
-    <p>Sunset: ${sunset}</p>
-  `;
+    <div class="weather-details">
+      <div class="weather-icon-container">
+        <img src="${iconUrl}" alt="${weatherDescription}" class="weather-icon">
+      </div>
+      <div class="weather-data">
+        <p><strong>Temperature:</strong> ${temperature}°C</p>
+        <p><strong>Feels like:</strong> ${feelsLike}°C</p>
+        <p><strong>Min temperature:</strong> ${minTemp}°C</p>
+        <p><strong>Max temperature:</strong> ${maxTemp}°C</p>
+        <p><strong>Pressure:</strong> ${pressure} hPa</p>
+        <p><strong>Humidity:</strong> ${humidity}%</p>
+        <p><strong>Visibility:</strong> ${visibility} meters</p>
+        <p><strong>Wind speed:</strong> ${windSpeed} m/s</p>
+        <p><strong>Wind direction:</strong> ${getWindDirection(windDirection)}</p>
+        <p><strong>Cloudiness:</strong> ${clouds}%</p>
+        <p><strong>Weather description:</strong> ${weatherDescription}</p>
+        <p><strong>Sunrise:</strong> ${sunrise}</p>
+        <p><strong>Sunset:</strong> ${sunset}</p>
+      </div>
+    </div>
+  </div>
+`;
 }
 
   function displayError(message) {
