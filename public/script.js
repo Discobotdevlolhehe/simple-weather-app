@@ -1,42 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const apiKey = "7d0433295afe33d818cd2b3ab60a2c1c"; // Replace with your OpenWeatherMap API key
   const searchBtn = document.getElementById('search-btn');
   const cityInput = document.getElementById('city-input');
 
-  // Event listener for search button click
   searchBtn.addEventListener('click', function () {
-    const cityInput = document.getElementById('city-input').value.trim();
-    if (cityInput !== '') {
-      fetchWeather(apiKey, cityInput);
-    }
+      const city = cityInput.value.trim();
+      if (city !== '') {
+          fetchWeather(city);
+      }
   });
 
   cityInput.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-      const city = cityInput.value.trim();
-      if (city !== '') {
-        fetchWeather(apiKey, city);
+      if (event.key === 'Enter') {
+          const city = cityInput.value.trim();
+          if (city !== '') {
+              fetchWeather(city);
+          }
       }
-    }
   });
 
-  function fetchWeather(apiKey, city) {
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        if (data.cod && data.cod === '404') {
-          displayError(data.message);
-        } else {
-          displayWeather(data);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching weather data:', error);
-        displayError('Failed to fetch weather data. Please try again later.');
-      });
+  function fetchWeather(city) {
+      fetch(`/weather?city=${city}`)
+          .then(response => response.json())
+          .then(data => {
+              if (data.error) {
+                  displayError(data.error.message);
+              } else {
+                  displayWeather(data);
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching weather data:', error);
+              displayError('Failed to fetch weather data. Please try again later.');
+          });
   }
+
 
   function displayWeather(weatherData) {
   const weatherInfo = document.getElementById('weather-info');

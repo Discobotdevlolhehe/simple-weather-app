@@ -16,16 +16,18 @@ A simple weather app made with the help of **Openweathermap API**
 - ```bash
    cd ./simple-weater-app
    ```
-- open script.js line 2
-  ```JS
-  const apiKey = "YOUR API"; // Replace with your OpenWeatherMap API key
+- rename example.env to .env
+  ```dotenv
+  PORT= 
+  API_KEY=
   ```
-- open the html file
+- node index.js
 
 ## Hosting
 
 * **Replit**
 - fork the [Repl here](https://replit.com/@Replitcom7/weather-app)
+- You have to go to `inedx.js` line 18 and change `http` to `https` to avoid mixed http requests
 
 others like heroku and stuff, coming soon, ig
 
