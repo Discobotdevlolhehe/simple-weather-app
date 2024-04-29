@@ -29,8 +29,7 @@ A simple weather app made with the help of **Openweathermap API**
 - fork the [Repl here](https://replit.com/@Replitcom7/weather-app)
 
 - You have to go to `inedx.js` line 18 and change `http` to `https` to avoid mixed http requests
-=======
-- line 24 change http -> https or else replit will throw http error
+
 
 
 others like heroku and stuff, coming soon, ig
